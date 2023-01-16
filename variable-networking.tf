@@ -6,8 +6,9 @@ variable "enable_public_access" {
 }
 
 variable "allowed_cidrs" {
-  description = "Map of authorized CIDRs"
+  description = "Map of authorized CIDRs. Mandatory"
   type        = map(string)
+  default = null
 }
 
 variable "network_acls" {
