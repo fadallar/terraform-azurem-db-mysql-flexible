@@ -11,17 +11,17 @@ output "mysql_administrator_password" {
 
 output "mysql_flexible_databases" {
   description = "Map of databases infos"
-  value       = azurerm_mysql_flexible_database.mysql_flexible_server
+  value       = azurerm_mysql_flexible_database.mysql_databases
 }
 
 output "mysql_flexible_databases_names" {
   description = "List of databases names"
-  value       = [for db in azurerm_mysql_flexible_database.mysql_flexible_server : db.name]
+  value       = [for db in azurerm_mysql_flexible_database.mysql_databases : db.name]
 }
 
 output "mysql_flexible_database_ids" {
   description = "The list of all database resource IDs"
-  value       = [for db in azurerm_mysql_flexible_database.mysql_flexible_server : db.id]
+  value       = [for db in azurerm_mysql_flexible_database.mysql_databases : db.id]
 }
 
 output "mysql_flexible_firewall_rule_ids" {

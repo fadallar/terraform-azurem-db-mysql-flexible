@@ -52,10 +52,9 @@ resource "azurerm_mysql_flexible_server" "mysql_flexible_server" {
   tags = merge(var.default_tags, var.extra_tags)
 }
 
-resource "azurerm_mysql_flexible_database" "mysql_flexible_db" {
+resource "azurerm_mysql_flexible_database" "mysql_databases" {
   for_each = var.databases
-
-  name                = var.use_caf_naming_for_databases ? data.azurecaf_name.mysql_flexible_databases[each.key].result : each.key
+  name                = each.key
   resource_group_name = var.resource_group_name
   server_name         = azurerm_mysql_flexible_server.mysql_flexible_server.name
   charset             = lookup(each.value, "charset", "utf8")
