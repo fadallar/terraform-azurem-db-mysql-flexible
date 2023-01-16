@@ -49,7 +49,7 @@ resource "azurerm_mysql_flexible_server" "mysql_flexible_server" {
     }
   }
 
-  tags = merge(local.default_tags, var.extra_tags)
+  tags = merge(var.default_tags, var.extra_tags)
 }
 
 resource "azurerm_mysql_flexible_database" "mysql_flexible_db" {

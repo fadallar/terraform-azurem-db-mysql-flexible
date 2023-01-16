@@ -1,27 +1,27 @@
 output "mysql_administrator_login" {
   description = "Administrator login for MySQL server"
-  value       = local.administrator_login
+  value       = azurerm_mysql_flexible_server.mysql_flexible_server.administrator_login
 }
 
 output "mysql_administrator_password" {
   description = "Administrator password for MySQL server"
-  value       = local.administrator_password
+  value       = azurerm_mysql_flexible_server.mysql_flexible_server.administrator_password
   sensitive   = true
 }
 
 output "mysql_flexible_databases" {
   description = "Map of databases infos"
-  value       = azurerm_mysql_flexible_database.mysql_flexible_db
+  value       = azurerm_mysql_flexible_database.mysql_flexible_server
 }
 
 output "mysql_flexible_databases_names" {
   description = "List of databases names"
-  value       = [for db in azurerm_mysql_flexible_database.mysql_flexible_db : db.name]
+  value       = [for db in azurerm_mysql_flexible_database.mysql_flexible_server : db.name]
 }
 
 output "mysql_flexible_database_ids" {
   description = "The list of all database resource IDs"
-  value       = [for db in azurerm_mysql_flexible_database.mysql_flexible_db : db.id]
+  value       = [for db in azurerm_mysql_flexible_database.mysql_flexible_server : db.id]
 }
 
 output "mysql_flexible_firewall_rule_ids" {
