@@ -1,5 +1,5 @@
 resource "azurerm_mysql_flexible_server" "mysql_flexible_server" {
-  name = local.name
+  name                = local.name
   location            = var.location
   resource_group_name = var.resource_group_name
 
@@ -53,7 +53,7 @@ resource "azurerm_mysql_flexible_server" "mysql_flexible_server" {
 }
 
 resource "azurerm_mysql_flexible_database" "mysql_databases" {
-  for_each = var.databases
+  for_each            = var.databases
   name                = each.key
   resource_group_name = var.resource_group_name
   server_name         = azurerm_mysql_flexible_server.mysql_flexible_server.name
@@ -62,7 +62,7 @@ resource "azurerm_mysql_flexible_database" "mysql_databases" {
 }
 
 resource "azurerm_mysql_flexible_server_configuration" "mysql_flexible_server_config" {
-  for_each = merge(local.default_mysql_options, var.mysql_options)
+  for_each            = merge(local.default_mysql_options, var.mysql_options)
   name                = each.key
   resource_group_name = var.resource_group_name
   server_name         = azurerm_mysql_flexible_server.mysql_flexible_server.name
