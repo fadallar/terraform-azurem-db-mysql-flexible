@@ -8,9 +8,12 @@ This module creates an Azure Database for Mysql Flexible server.
   - It configures MySQL server settings
   - It creates a MySQL Admin Login with a randomly generated password
 
+## Usage
+
+Please refer to the examples folder in this repo 
 
 <!-- BEGIN_TF_DOCS -->
-    ## Requirements
+## Requirements
 
 | Name | Version |
 |------|---------|
