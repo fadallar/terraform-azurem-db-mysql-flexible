@@ -9,9 +9,10 @@ This an example for setting-up a an Azure Database MySql Flexible
   - Set the default diagnostics settings (All Logs and metric) whith a Log Anamytics workspace as destination --> module "mysql_db"
   - Two SQL Databases --> module "mysql_db"
 
-  The template does not create the dedicated subnet for the private  
+  The template does not create the dedicated subnet for the private access 
   The template does not create the log analytics workspace  
 
+## Main.tf file content
   Please replace the modules source and version with your relevant information  
 
 ```hcl  
@@ -57,9 +58,24 @@ module "mysql_db" {
   resource_group_name             = module.rg.resource_group_name  
   default_tags                    = module.base-tagging.base_tags  
   
-  diag_log_analytics_workspace_id = "" ### log_analytics_workspace resource Id  
-  administrator_login = "examplesqladminlogin"  
+  diag_log_analytics_workspace_id = "" ### log_analytics_workspace resource Id 
+  delegated_subnet_id             = "" ### Resource Id of the delegated subnet 
+  private_dns_zone_id = "" ### Resource ID of the private DNS zone 
   
+  administrator_login = "examplesqladminlogin" 
+
+  // Size your instances
+
+  tier = "Basic"              # Busrtable Category
+  size = "Standard_B2ms"      
+
+  // Pass the Sql config parameters here. This section is optional
+  mysql_options = {
+    "max_allowed_packet" = "128000000",
+    "innodb_lock_wait_timeout" = "200"
+  }
+
+  // Creates the SQL database
   databases = {
     "myfirstdb" = {
       "charset"   = "utf8"

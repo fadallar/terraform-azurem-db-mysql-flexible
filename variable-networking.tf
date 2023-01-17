@@ -6,7 +6,7 @@ variable "enable_public_access" {
 }
 
 variable "allowed_cidrs" {
-  description = "Map of authorized CIDRs. Mandatory"
+  description = "Map of authorized CIDRs. Mandatory if public access is enabled"
   type        = map(string)
   default = null
 }
@@ -28,12 +28,12 @@ variable "enable_private_access" {
 }
 
 variable "delegated_subnet_id" {
-  description = "The ID of the virtual network subnet to create the MySQL Flexible Server."
+  description = "The ID of the virtual network subnet to create the MySQL Flexible Server. Mandatory if private access is enabled"
   type        = string
   default     = null
 }
 
-variable "private_dns_zone_id" {
+variable "private_dns_zone_id. Mandatory if private access is enabled" {
   description = "The ID of the private dns zone to create the MySQL Flexible Server."
   type        = string
   default     = null

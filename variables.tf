@@ -78,7 +78,7 @@ variable "tier" {
 }
 
 variable "size" {
-  description = "The size for the MySQL Flexible Server."
+  description = "The size for the MySQL Flexible Server: https://learn.microsoft.com/en-us/azure/mysql/flexible-server/concepts-service-tiers-storage#service-tiers-size-and-server-types "
   type        = string
   default     = "Standard_D2ds_v4"
 }

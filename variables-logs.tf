@@ -13,17 +13,17 @@ variable "diag_log_analytics_workspace_id" {
 #EOD
 #}
 
-variable "logs_categories" {
-  type        = list(string)
-  description = "Log categories to send to destinations."
-  default     = null
-}
-
-variable "metrics_categories" {
-  type        = list(string)
-  description = "Metrics categories to send to destinations."
-  default     = null
-}
+#variable "logs_categories" {
+#  type        = list(string)
+#  description = "Log categories to send to destinations."
+#  default     = null
+#}
+#
+#variable "metrics_categories" {
+#  type        = list(string)
+#  description = "Metrics categories to send to destinations."
+#  default     = null
+#}
 
 variable "logs_retention_days" {
   type        = number
