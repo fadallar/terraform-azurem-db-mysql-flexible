@@ -41,6 +41,7 @@ module "ressource" {
     version = "x.y.z"
     environment = var.environment
     stack       = var.stack
+    landing_zone_slug = var.landing_zone_slug
     location    = module.regions_master.location
     location_short  = module.regions_master.location_short
 }
