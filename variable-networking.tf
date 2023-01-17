@@ -33,8 +33,8 @@ variable "delegated_subnet_id" {
   default     = null
 }
 
-variable "private_dns_zone_id. Mandatory if private access is enabled" {
-  description = "The ID of the private dns zone to create the MySQL Flexible Server."
+variable "private_dns_zone_id" {
+  description = "The ID of the private dns zone to create the MySQL Flexible Server. Mandatory if private access is enabled"
   type        = string
   default     = null
 }
